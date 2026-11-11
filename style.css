@@ -1,0 +1,55 @@
+body {
+  background: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.shatter-menu {
+  display: flex;
+  gap: 40px;
+}
+
+.shatter-menu a {
+  position: relative;
+  font-size: 2rem;
+  font-weight: 900;
+  color: transparent;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.shatter-menu a::before,
+.shatter-menu a::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #fff;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+}
+
+.shatter-menu a::before {
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 55%);
+}
+
+.shatter-menu a::after {
+  clip-path: polygon(0 55%, 100% 45%, 100% 100%, 0 100%);
+  color: #ff3e00; 
+}
+
+.shatter-menu a:hover::before {
+  transform: translateY(-5px) translateX(-2px) rotate(-5deg);
+  opacity: 0.7;
+}
+
+.shatter-menu a:hover::after {
+  transform: translateY(5px) translateX(2px) rotate(3deg);
+}
+
+.shatter-menu a:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
